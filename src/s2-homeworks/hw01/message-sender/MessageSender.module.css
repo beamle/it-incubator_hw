@@ -1,0 +1,32 @@
+.sendForm {
+    display: grid;
+    grid-template-columns: 10fr auto;
+    grid-gap: 5%;
+    margin-top: 50px
+}
+
+.textarea {
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-left: 6%;
+}
+
+.button {
+    border-radius: 20px;
+    width: 120px;
+    margin-right: 50px;
+    background-color: #0066CC;
+    color: white;
+    border: 1px solid;
+    font-weight: bold;
+    font-size: 16px;
+
+}
+
+.button:hover {
+
+}
+.button:active {
+
+}
