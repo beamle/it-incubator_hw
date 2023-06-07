@@ -2,14 +2,14 @@ import React, {ChangeEvent, KeyboardEvent} from 'react'
 import s from './Greeting.module.css'
 
 type GreetingPropsType = {
-    name: any // need to fix any
-    setNameCallback: any // need to fix any
-    addUser: any // need to fix any
-    onBlur: any // need to fix any
-    onEnter: any // need to fix any
-    error: any // need to fix any
-    totalUsers: any // need to fix any
-    lastUserName?: any // need to fix any
+    name: string
+    setNameCallback: (e: ChangeEvent<HTMLInputElement>) => void
+    addUser: () => void
+    onBlur: () => void
+    onEnter: (e: KeyboardEvent<HTMLInputElement>) => void
+    error: string // need to fix any
+    totalUsers: number // need to fix any
+    lastUserName?: string // need to fix any
 }
 
 // презентационная компонента (для верстальщика)
@@ -25,10 +25,13 @@ const Greeting: React.FC<GreetingPropsType> = (
         lastUserName,
     } // деструктуризация пропсов
 ) => {
-    const inputClass = s.errorInput // need to fix with (?:)
+    // const inputClass = !name ? s.errorInput : s.custom;
+    const inputClass = error ? s.errorInput : ''
+
 
     return (
         <div id={'hw3-form'} className={s.greetingForm}>
+            <hr/>
             <div className={s.text}>
                 {'Людей добавили: '}
                 <span id={'hw3-users-total'}>
@@ -37,7 +40,7 @@ const Greeting: React.FC<GreetingPropsType> = (
             </div>
 
             <div className={s.inputAndButtonContainer}>
-                <div>
+                <div className={s.custom}>
                     <input
                         id={'hw3-input'}
                         value={name}
@@ -46,19 +49,19 @@ const Greeting: React.FC<GreetingPropsType> = (
                         onKeyDown={onEnter}
                         onBlur={onBlur}
                     />
-                    <div id={'hw3-error'} className={s.error}>
-                        {error}
-                    </div>
+                    <button
+                        id={'hw3-button'}
+                        onClick={addUser}
+                        className={s.button}
+                        disabled={!name.trim()}
+                    >
+                        add
+                    </button>
+                </div>
+                <div id={'hw3-error'} className={s.error}>
+                    {error}
                 </div>
 
-                <button
-                    id={'hw3-button'}
-                    onClick={addUser}
-                    className={s.button}
-                    disabled={!name.trim()}
-                >
-                    add
-                </button>
             </div>
 
             {lastUserName && (
@@ -66,6 +69,7 @@ const Greeting: React.FC<GreetingPropsType> = (
                     Привет <span id={'hw3-last-user'}>{lastUserName}</span>!
                 </div>
             )}
+            <hr/>
         </div>
     )
 }
