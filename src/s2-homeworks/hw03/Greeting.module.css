@@ -27,7 +27,7 @@
 }
 
 .errorInput {
-    border: 1px solid red;
+    border: 1px solid red !important ;
     padding: 10px;
     border-radius: 10px;
 }
