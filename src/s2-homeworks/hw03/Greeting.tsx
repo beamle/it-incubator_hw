@@ -26,7 +26,8 @@ const Greeting: React.FC<GreetingPropsType> = (
     } // деструктуризация пропсов
 ) => {
     // const inputClass = !name ? s.errorInput : s.custom;
-    const inputClass = error ? s.errorInput : ''
+    // const inputClass =s.input + ' ' + error ? s.errorInput : '';
+    const inputClass =error ? s.errorInput : '';
 
 
     return (
