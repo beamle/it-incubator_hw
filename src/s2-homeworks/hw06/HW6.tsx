@@ -18,7 +18,9 @@ const HW6 = () => {
         saveState<string>('hw6-editable-span-value', value)
     }
     const restore = () => {
-        // делают студенты
+        let lsValue = localStorage.getItem('hw6-editable-span-value')
+        if (lsValue) setValue(JSON.parse(lsValue))
+        console.log(value)
 
     }
 
@@ -27,6 +29,7 @@ const HW6 = () => {
             <div className={s2.hwTitle}>Homework #6</div>
 
             {/*демонстрация возможностей компоненты:*/}
+            <hr/>
             <div className={s2.hw}>
                 <div className={s.editableSpanContainer}>
                     <SuperEditableSpan
@@ -35,7 +38,7 @@ const HW6 = () => {
                         onChangeText={setValue}
                         spanProps={{
                             id: 'hw6-editable-span',
-                            defaultText: 'enter text...',
+                            defaultText: 'Enter text...',
                         }}
                     />
                 </div>

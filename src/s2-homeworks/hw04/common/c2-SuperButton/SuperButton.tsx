@@ -21,15 +21,22 @@ const SuperButton: React.FC<SuperButtonPropsType> = (
     // * 2 - в зависимости от типа и дизэйбла прицепить нужный класс в SuperButton.tsx (строка 21)
 
 
-    const finalClassName = s.button //
-        + (disabled ? ' ' + s.disabled
-            : xType === 'red' ? ' ' + s.red
-            : xType === 'secondary' ? ' ' + s.secondary
-            : ' ' + s.default)
-        //         ? ...
-        //         : xType === 'red'
-        //             ? ...
-        + (className ? ' ' + className : '') // задачка на смешивание классов
+    // const finalClassName = s.button
+    //     + (disabled ? ' ' + s.disabled
+    //         : xType === 'red' ? ' ' + s.red
+    //         : xType === 'secondary' ? ' ' + s.secondary
+    //         : ' ' + s.default)
+    //     //         ? ...
+    //     //         : xType === 'red'
+    //     //             ? ...
+    //     + (className ? ' ' + className : '') // задачка на смешивание классов
+
+    const finalClassName = `${s.button} 
+                        ${disabled ? s.disabled 
+                            : xType === 'red' ? s.red
+                            : xType === 'secondary' ? s.secondary
+                            : s.default}
+                        ${className || ''}`
 
     return (
         <button

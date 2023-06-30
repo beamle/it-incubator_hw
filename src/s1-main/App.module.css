@@ -3,7 +3,6 @@
 }
 
 .hw {
-
 }
 
 .hwTitle {
@@ -17,4 +16,7 @@
 hr {
     margin-bottom: 30px;
     margin-top: 20px;
+    height: 1px;
+    background-color: #e5e5e5;
+    border: none;
 }
