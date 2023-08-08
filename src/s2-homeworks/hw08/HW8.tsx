@@ -44,6 +44,7 @@ const HW8 = () => {
         setPeople(
             homeWorkReducer(initialPeople, {type: 'sort', payload: 'down'})
         ) // в обратном порядке a.name < b.name}
+        console.log('pressed down')
         setCurrentSort('down')
     }
     const check18 = () => {
